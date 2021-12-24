@@ -1,9 +1,3 @@
-
-// query selector lets us choose tags/elements in HTML
-// query selector all lets us choose all panels
-// node list
-const panels = document.querySelectorAll('.panel')
-
 ////////////////////////////////////////////
 //console.log(panels)
 
@@ -23,6 +17,15 @@ const panels = document.querySelectorAll('.panel')
 ////////////////////////////////////////////
 
 
+// query selector lets us choose tags/elements in HTML
+// query selector all lets us choose all panels
+// node list
+const panels = document.querySelectorAll('.panel')
+const buttons = document.querySelector('.button_container')
+
+
+
+
 panels.forEach((panel) => {
     panel.addEventListener('click', () => {
         removeActiveClasses()
@@ -30,8 +33,18 @@ panels.forEach((panel) => {
     })
 })
 
+if(buttons){
+    buttons.addEventListener('click', () => {
+        panels.forEach(panel => {
+            panel.classList.remove('active')
+        })
+    })
+}
+
 function removeActiveClasses(){
     panels.forEach(panel => {
         panel.classList.remove('active')
     })
 }
+
+
